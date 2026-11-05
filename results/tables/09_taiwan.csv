@@ -1,0 +1,4 @@
+config,AUC_mean,AUC_std,AUPRC_mean,AUPRC_std
+graph_knn,0.8611,0.0162,0.162,0.0145
+intra,0.9052,0.0143,0.2432,0.0179
+null_shuffle,0.8048,0.0389,0.13,0.0606

@@ -1,0 +1,5 @@
+config,AUC_mean,AUC_std,F1_mean,KS_mean
+graph_0_11,0.7671,0.0136,0.6883,0.4357
+intra,0.6862,0.0083,0.6015,0.3119
+intra+degree,0.809,0.0064,0.7137,0.4843
+intra+neighbor_max,0.7478,0.0151,0.6974,0.3782
