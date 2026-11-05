@@ -1,4 +1,0 @@
-stratum,n,AUC_intra,AUC_contagion,uplift
-0 lawsuits,272,0.7163,0.7759,0.0596
-1 lawsuit,38,0.6277,0.8092,0.1815
->=2 lawsuits,181,0.6957,0.7976,0.1019
