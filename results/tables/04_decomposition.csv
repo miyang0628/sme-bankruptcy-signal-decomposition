@@ -1,4 +1,0 @@
-config,AUC_mean,AUC_std,F1_mean,KS_mean
-intra,0.6862,0.0083,0.6015,0.3119
-contagion_0_11,0.7671,0.0136,0.6883,0.4357
-contagion_0_19,0.7658,0.0135,0.6723,0.4339
