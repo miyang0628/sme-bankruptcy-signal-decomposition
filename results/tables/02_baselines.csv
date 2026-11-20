@@ -1,0 +1,13 @@
+mask,tier,features,model,AUC_mean,AUC_std,F1_mean,KS_mean,n_seeds
+A,Floor,basic3,LogReg,0.6235,0.0,0.7157,0.2388,1
+A,Floor,basic3,MLP,0.6564,0.0508,0.7851,0.2789,10
+A,Intra,intra23,LogReg,0.6216,0.0,0.6564,0.2229,1
+A,Intra,intra23,MLP,0.6813,0.0087,0.7345,0.3059,10
+A,Intra,intra23,LightGBM,0.6747,0.0037,0.6518,0.2745,10
+A,Intra,intra23,XGBoost,0.6807,0.0043,0.6837,0.2951,10
+B,Floor,basic3,LogReg,0.6207,0.0,0.7157,0.2439,1
+B,Floor,basic3,MLP,0.6339,0.0564,0.7822,0.2546,10
+B,Intra,intra23,LogReg,0.6172,0.0,0.6633,0.2172,1
+B,Intra,intra23,MLP,0.6857,0.0113,0.7357,0.3102,10
+B,Intra,intra23,LightGBM,0.6794,0.0028,0.661,0.2701,10
+B,Intra,intra23,XGBoost,0.679,0.0047,0.681,0.2885,10

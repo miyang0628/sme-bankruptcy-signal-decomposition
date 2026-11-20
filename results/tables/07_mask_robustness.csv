@@ -1,0 +1,7 @@
+family,name,A,B,A_minus_B
+arch,ATTN,0.7455,0.7576,-0.0121
+arch,SAGE,0.7658,0.7813,-0.0155
+enrichment,C0_base,0.7658,0.7791,-0.0133
+enrichment,C1_sem,0.767,0.7688,-0.0018
+enrichment,C2_dir,0.7575,0.7702,-0.0127
+enrichment,C3_both,0.7656,0.7727,-0.0071

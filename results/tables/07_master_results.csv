@@ -1,0 +1,16 @@
+RQ,config,AUC_mean,AUC_std
+RQ1,Floor:LogReg(basic3),0.6235,0.0
+RQ1,Floor:MLP(basic3),0.6564,0.0508
+RQ1,Intra:LogReg(intra23),0.6216,0.0
+RQ1,Intra:MLP(intra23),0.6813,0.0087
+RQ1,Intra:LightGBM(intra23),0.6747,0.0037
+RQ1,Intra:XGBoost(intra23),0.6807,0.0043
+RQ1,GNN:ATTN,0.7455,0.0186
+RQ1,GNN:SAGE,0.7658,0.0135
+RQ2,intra,0.6862,0.0083
+RQ2,contagion_0_11,0.7671,0.0136
+RQ2,contagion_0_19,0.7658,0.0135
+RQ3,C0_base,0.7658,0.0135
+RQ3,C1_sem,0.767,0.0154
+RQ3,C2_dir,0.7575,0.0135
+RQ3,C3_both,0.7656,0.0119

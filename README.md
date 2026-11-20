@@ -23,7 +23,12 @@ The study is organized around three questions:
   passing, how is the signal split between intra-risk (a firm's own lawsuit
   record) and contagion (relational propagation)? An edge-shuffle permutation
   null, a DeLong test, and bootstrap confidence intervals test whether the
-  contagion uplift reflects real structure.
+  contagion uplift reflects real structure. A degree-destroying and a
+  degree-preserving (configuration-model) null, plus a connection-count baseline,
+  separate a genuine *connectivity* effect from specific *wiring*; a
+  **matched-input** test then gives both the non-graph model and the GNN the same
+  connection counts to isolate what the wiring adds once connectivity is
+  controlled.
 - **RQ3 — LLM enrichment.** Does enriching the *coded* lawsuit fields with
   LLM-derived semantics and an explicit risk direction beat simple counts? We
   report a controlled, power-analyzed negative result.
@@ -46,9 +51,19 @@ notebooks/
   05_llm_enrichment.ipynb           RQ3 ablation + power/equivalence analysis
   06_decision_analysis.ipynb        calibration, expected cost, decision curves
   07_robustness.ipynb               consolidation, mask A/B, stratified analysis
+  08_confound_inference.ipynb       attention-operator decomposition + inference
+  09_protocol_generalization.ipynb  cross-dataset discrimination (Taiwan)
+  10_decision_sweep.ipynb           base-rate / cost-ratio decision sweeps
+  11_round2_robustness.ipynb        person-pooling + degree-null robustness
+  12_degree_baseline.ipynb          connection-count baseline + 50-draw null
+scripts/                            revision (round-3) add-on experiments
+  matched_input.py                  matched-input test: GNN vs MLP, both given counts
+  delong_fix.py                     per-seed DeLong for the matched-input test
+  degree_cost.py                    decision analysis for the recommended degree model
+  confound_check.py                 degree vs firm size/age (confound check)
 results/
   figures/            grayscale figures (png + pdf, 600 dpi)
-  tables/             result tables (csv)
+  tables/             result tables (csv); 13_* matched-input, 14_* degree-model cost
 ```
 
 ## Data
@@ -69,9 +84,27 @@ pip install torch torch_geometric scikit-learn lightgbm xgboost \
             pandas numpy scipy seaborn matplotlib
 ```
 
-Run the notebooks in order (`00` → `07`). Each notebook is self-contained in a
+Run the notebooks in order (`00` → `12`). Each notebook is self-contained in a
 single cell and writes its tables to `results/tables/` and figures to
 `results/figures/`. Notebook `00` must run first to build the shared graph.
+
+The `scripts/` directory holds the revision (round-3) add-on experiments, which
+reuse the model definitions, feature construction, and training protocol of the
+notebooks and read the same `data/processed/smesd_hetero.pt`. After `00` has built
+the graph, they can be run directly:
+
+```
+python scripts/matched_input.py     # 13_matched_input*.csv  (GNN vs MLP, both given counts)
+python scripts/delong_fix.py        # 13_matched_delong.csv  (per-seed DeLong)
+python scripts/degree_cost.py       # 14_degree_*.csv        (degree-model decision analysis)
+python scripts/confound_check.py    # degree vs firm size/age correlation
+```
+
+These produce the matched-input comparison (the GNN given the same connection
+counts reaches AUC 0.818 vs the degree model's 0.809; DeLong non-significant in all
+10 seeds) and the decision analysis for the recommended degree model (isotonic
+Brier 0.180; about 23% expected-cost saving at a 5% base rate, no higher than the
+graph model's cost at any swept base rate).
 
 **LLM-derived features are frozen.** The semantic embeddings and risk-direction
 scalars for the 19 lawsuit codes are content-hashed and cached in

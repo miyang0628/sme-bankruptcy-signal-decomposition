@@ -1,0 +1,4 @@
+condition,dAUC,paired_t,p,MDE_AUC,TOST_p,equivalent_within_0.01
+C1_sem,0.0011,0.149,0.8851,0.0242,0.1399,False
+C2_dir,-0.0083,-1.516,0.1639,0.0173,0.3845,False
+C3_both,-0.0002,-0.043,0.9668,0.016,0.0435,True

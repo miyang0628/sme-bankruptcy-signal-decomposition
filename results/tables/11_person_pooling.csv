@@ -1,0 +1,5 @@
+config,AUC_mean,AUC_std
+intra,0.6862,
+intra+person_mean,0.6724,0.0134
+intra+person_sum,0.7284,0.0196
+intra+person_max,0.7478,0.0143
